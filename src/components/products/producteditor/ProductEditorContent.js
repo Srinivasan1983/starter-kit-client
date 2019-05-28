@@ -11,7 +11,7 @@ class ProductEditorContent extends Component {
   renderMediaList = p => {
     return (
       <Card>
-        <Card.Img variant="top" src={p.image} />
+        <Card.Img thumbnail height={210} variant="top" src={p.image} />
         <Card.Body>
           <Card.Title>{p.name}</Card.Title>
           <Card.Text>{p.category}</Card.Text>

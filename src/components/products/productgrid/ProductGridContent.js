@@ -31,14 +31,15 @@ class ProductGridContent extends Component {
                   <Row>
                     <Col md={4}>$ {p.name}</Col>
                     <Col md={{ span: 4, offset: 4 }}>
+                      
                       <Link
-                        to={{
-                          pathname: `/collections/all-sets`
-                        }}
-                        style={{ color: "white" }}
-                      >
-                        Buy Individual Sets
-                      </Link>
+                    to={{
+                      pathname: `/collections/all-sets`
+                    }}
+                    style={{ color: "white" }}
+                  >
+                    Buy Individual Sets
+                  </Link>
                     </Col>
                   </Row>
                 </Card.Header>

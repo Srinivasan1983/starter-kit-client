@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import {
-  Jumbotron,
-  Row,
-  Col
-} from "react-bootstrap";
+import { Jumbotron, Row, Col, Container, Button } from "react-bootstrap";
+import {Link} from 'react-router-dom';
 import ProductEditorContent from "./ProductEditorContent";
 
 import { connect } from "react-redux";
@@ -13,7 +10,7 @@ import {
   fetchProductById,
   fetchRemainingProductById
 } from "../../../actions/productActions";
-import ProductRemaining from "./ProductRemaining";
+// import ProductRemaining from "./ProductRemaining";
 
 class ProductEditor extends Component {
   componentDidMount() {
@@ -22,8 +19,7 @@ class ProductEditor extends Component {
   }
 
   render() {
-    const { error, loading, product, otherproductkit } = this.props;
-    console.log(otherproductkit);
+    const { error, loading, product } = this.props;
 
     if (error) {
       return <div>{error.message}</div>;
@@ -38,21 +34,30 @@ class ProductEditor extends Component {
     }
 
     return (
-      <Jumbotron style={{background:"white"}}>
+      <Jumbotron style={{ background: "white" }}>
+        <Container>
+          <Row>
+            <Col md={4}>
+              <h3 style={{color: "orange"}}>Starter Kit</h3>
+            </Col>
+            <Col md={{ offset: 6 }}>
+              <Link
+                to={{
+                  pathname: "/"
+                }}
+                style={{ color: "green" }}
+              >
+                <Button variant="outline-success">Buy Ready Kits</Button>
+              </Link>
+            </Col>
+          </Row>
+          <br />
+        </Container>
         <Row>
-          <Col xs={12} sm={6}>
+          <Col md={{ span: 6, offset: 3 }}>
             {product.map(item => (
               <ProductEditorContent
                 product={item}
-                key={item.id}
-                startCustomizeCallback={this.props.startCustomizeCallback}
-              />
-            ))}
-          </Col>
-          <Col>
-            {otherproductkit.map(item => (
-              <ProductRemaining
-                otherproductkit={item}
                 key={item.id}
                 startCustomizeCallback={this.props.startCustomizeCallback}
               />
@@ -86,3 +91,16 @@ export default WithProductService()(
     mapDispatchToProps
   )(ProductEditor)
 );
+
+/**
+ * 
+ *           <Col>
+            {otherproductkit.map(item => (
+              <ProductRemaining
+                otherproductkit={item}
+                key={item.id}
+                startCustomizeCallback={this.props.startCustomizeCallback}
+              />
+            ))}
+          </Col>
+ */

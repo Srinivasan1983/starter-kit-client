@@ -12,6 +12,8 @@ class ProductRemaining extends Component {
   }
 
   render() {
+    console.log(this.props);
+    
     let p = this.props.otherproductkit;
     return (
       <div>
@@ -26,7 +28,7 @@ class ProductRemaining extends Component {
           <Figure.Caption style={{ color: "green" }}>
             <p>{p.name}</p>
             <h5>$ {p.price}</h5>
-            <Link to={`/product/${p.id}`} onClick={() => window.location.refresh()} >Proceed</Link>
+            <Link to={`/product/${p.id}`}>Proceed</Link>
           </Figure.Caption>
         </Figure>
         <br />
