@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import {
-  Row,
-  Col,
-  Card,
-  Form
-} from "react-bootstrap";
+import { Row, Col, Card, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class ProductEditorContent extends Component {
   constructor(props) {
@@ -103,7 +99,14 @@ class ProductEditorContent extends Component {
             <Row>
               <Col md={4}>$ {p.price}</Col>
               <Col md={{ span: 4, offset: 4 }}>
-                <Card.Link href="/collections/all-sets" style={{ color: "white" }}>Buy Individual Sets</Card.Link>
+                <Link
+                  to={{
+                    pathname: "/collections/all-sets"
+                  }}
+                  style={{ color: "white" }}
+                >
+                  Buy Individual Sets
+                </Link>
               </Col>
             </Row>
           </Card.Header>

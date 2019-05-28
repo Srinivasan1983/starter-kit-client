@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Figure } from "react-bootstrap";
 
 class ProductRemaining extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            otherproductkit: ""
-        }
-    }
+    this.state = {
+      otherproductkit: ""
+    };
+  }
 
   render() {
     let p = this.props.otherproductkit;
@@ -25,10 +25,7 @@ class ProductRemaining extends Component {
           <Figure.Caption style={{ color: "green" }}>
             <p>{p.name}</p>
             <h5>$ {p.price}</h5>
-            <a href={`/product/${p.id}`}>
-
-              Proceed
-            </a>
+            <a href={`/product/${p.id}`}>Proceed</a>
           </Figure.Caption>
         </Figure>
         <br />

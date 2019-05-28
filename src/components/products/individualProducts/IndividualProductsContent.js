@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class IndividualProductsContent extends Component {
   render() {
@@ -10,14 +11,18 @@ class IndividualProductsContent extends Component {
       <>
         <Container>
           <Row>
-            <Col md={4}><h3>{title}</h3></Col>
+            <Col md={4}>
+              <h3>{title}</h3>
+            </Col>
             <Col md={{ offset: 4 }}>
-              <Card.Link
-                href="/"
+              <Link
+                to={{
+                  pathname: "/"
+                }}
                 style={{ color: "green" }}
               >
                 <Button variant="outline-success">Buy Ready Kits</Button>
-              </Card.Link>
+              </Link>
             </Col>
           </Row>
           <br />
