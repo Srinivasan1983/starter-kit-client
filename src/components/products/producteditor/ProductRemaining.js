@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Figure } from "react-bootstrap";
+import {Link} from 'react-router-dom';
 
 class ProductRemaining extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class ProductRemaining extends Component {
           <Figure.Caption style={{ color: "green" }}>
             <p>{p.name}</p>
             <h5>$ {p.price}</h5>
-            <a href={`/product/${p.id}`}>Proceed</a>
+            <Link to={`/product/${p.id}`} onClick={() => window.location.refresh()} >Proceed</Link>
           </Figure.Caption>
         </Figure>
         <br />
